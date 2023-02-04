@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>
+        URL Shortner
+    </title>
+    <style>
+        div {
+            text-align: center
+        }
+        input[type=submit]{
+            background-color: #04AA6D;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            margin: 8px 8px;
+            cursor: pointer;
+          }
+        
+          body{
+            font-family: 'Trebuchet MS', sans-serif;
+          }
+          .main{
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+            width: 300px;
+            height: 200px;
+            border: 1px solid black
+            box-sizing: border-box;
+            margin-top: 100px;
+            margin-left: 650px;
+            padding-left: 50px;
+            padding-right: 50px;
+          }
+          
+    </style>
+</head>
+
+
+<body>
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags %}
+    <script>alert("{{ message }}")</script> {% endif %}
+    {% endfor %}
+    {% endif %}
+    <div class="main">
+        <h1 align="center">URL Shortner</h1>
+        <form action="urlShort" method="POST">
+            {% csrf_token %}
+        <div>
+            {{form}} <br>
+            <input type= "submit" Value="Shorten URL">
+        </div>
+    </div>    
+    </form>
+</body>
+ 
+</html>
+
+
